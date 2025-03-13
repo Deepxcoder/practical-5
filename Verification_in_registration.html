@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration Form</title>
+        <style>
+            form{
+                margin: 10px;
+                padding: 10px;
+                border: 2px solid black;
+                font-family: sans-serif;
+                background-image:url("thumb-1920-285460.jpg");
+                background-size: cover;
+                scale(1.5);
+            }
+            body{
+                background-image: url(modern-futuristic-sci-fi-background.jpg); 
+                background-size: cover;
+                color:white;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+        </style>
+        <script>
+            function validateForm(){
+                let first_name = document.getElementsByName("First name")[0].value;
+                let last_name = document.getElementsByName("Last name")[0].value;
+                let password = document.getElementsByName("password")[0].value;
+                let email = document.getElementsByName("email")[0].value;
+                let phone_number = document.getElementsByName("phone number")[0].value;
+
+                let name_varification = /^[A-Za-z]{4,}$/;
+                let password_varification = /^[A-Za-z0-9]{7,}$/;
+                let email_varification = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+                let phone_number_varification = /^\d{10}$/;
+
+                if(!name_varification.test(first_name))
+                {
+                    alert("First name should be more than 4 characters");
+                    return false;
+                }
+                if(!name_varification.test(last_name))
+                {
+                    alert("Last name should be more than 4 characters");
+                    return false;
+                }
+                if(!password_varification.test(password))
+                {
+                    alert("Password should be more than 7 characters");
+                    return false;
+                }
+                if(!email_varification.test(email))
+                {
+                    alert("Email should be in correct format");
+                    return false;
+                }
+                if(!phone_number_varification.test(phone_number))
+                {
+                    alert("Phone number should be 10 digits");
+                    return false;
+                }
+                alert("Form submitted successfully :)");
+                return true;     
+            }
+        </script>
+    </head>
+    <body bgcolor="lightblue">
+        <form target="_blank" action="Registration.html" method="post" onSubmit="return validateForm();">
+            <h1>Registration Form</h1>
+            <label>First name:</label>
+            <input type="text" name="First name" placeholder="Enter your first name" required><br>
+            <label>Last name:</label>
+            <input type="text" name="Last name" placeholder="Enter your last name" required><br> 
+            <label>Password:</label>
+            <input type="password" name="password" placeholder="Enter your Password" required><br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="please enter your email address" required><br>
+            <label>Address:</label>
+            <input type="textarea" name="address" placeholder="Enter your full home address" required><br>
+            <label>Phone number:</label>
+            <input type="number" name="phone number" placeholder="Enter your phone number" required><br>
+            <label>Gender:</label>
+            <input type="radio" value="male" name="Gender"><label>male</label>
+            <input type="radio" value="female" name="Gender"><label>female</label><br>
+            <label>Subject:</label>
+            <input type="checkbox" name="Subject" value="MWA"><label>MWA</label>
+            <input type="checkbox" name="Subject" value="IS"><label>IS</label>
+            <input type="checkbox" name="Subject" value="IPPR"><label>IPPR</label>
+            <input type="checkbox" name="Subject" value="FCS"><label>FCS</label>
+            <input type="checkbox" name="Subject" value="CN"><label>CN</label>
+            <input type="checkbox" name="Subject" value="AI"><label>AI</label><br>
+            <label>Department:</label>
+            <select>
+                <optgroup label="Department">
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Informational Technology">Informational Technology</option>
+                    <option value="Mechnical">Mechnical</option>
+                    <option value="Medical">Medical</option>
+                    <option value="MBA">MBA</option>
+                </optgroup>
+            </select>
+            <br><label>Submit:</label>
+            <input type="submit" value="Submit">
+            <label>Reset:</label>
+            <input type="reset" value="Reset">
+        </form>
+    </body>
+</html>
